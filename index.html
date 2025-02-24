@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #D2B48C; /* Dog brown color */
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #8B4513; /* Darker brown */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #A0522D; /* Lighter brown */
+        }
+
+        .fact {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button onclick="displayRandomFact()">Show a Dog Fact</button>
+        <div id="fact" class="fact"></div>
+    </div>
+
+    <script>
+        const facts = [
+            "Dogs have a sense of time and can predict future events, such as regular walk times.",
+            "A dog's sense of smell is at least 40 times better than a human's.",
+            "Dogs have three eyelids, including one to keep their eyes moist and protected.",
+            "The Basenji dog is known as the 'barkless dog' because it doesn't bark, but it can make other noises.",
+            "Dogs can hear sounds at frequencies as high as 65,000 Hz, while humans can only hear up to 20,000 Hz.",
+            "The Greyhound is the fastest dog breed and can run up to 45 miles per hour.",
+            "Dogs have sweat glands only in their paw pads.",
+            "A dog's nose print is unique, much like a human's fingerprint.",
+            "The Labrador Retriever has been the most popular dog breed in the United States for over 30 years.",
+            "Dogs curl up in a ball when sleeping to protect their organs—a holdover from their days in the wild."
+        ];
+
+        function displayRandomFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factElement = document.getElementById('fact');
+            factElement.style.opacity = 0; // Start with opacity 0 for animation
+            setTimeout(() => {
+                factElement.innerText = facts[randomIndex];
+                factElement.style.opacity = 1; // Fade in effect
+            }, 300);
+        }
+    </script>
+
+</body>
+</html>
